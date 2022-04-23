@@ -26,6 +26,23 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.} 
  */
 
-const palindromeNumber = function (x) {};
+function palindromeNumber(x) {
+  let num = x;
+  let num2 = x;
+  let revers = 0;
 
-module.exports = palindromeNumber;
+  while (num != 0) {
+    let lastDigit = Math.floor(num % 10);
+    revers = revers * 10 + lastDigit;
+    num = Math.floor(num / 10);
+  }
+  // console.log(revers);
+
+  if (num2 === revers) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(palindromeNumber(121));

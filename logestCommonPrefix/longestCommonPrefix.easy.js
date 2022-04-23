@@ -16,32 +16,28 @@
  *
  */
 
-// const longestCommonPrefix = function (strs) {
-//   strs.forEach((element) => {
-//     if (element[0] === element[0] && element[1] === element[1]) {
-//       return strs;
-//     } else {
-//       return "";
-//     }
-//   });
-// };
-// let strs = ["flower", "flow", "flight"];
-// console.log(longestCommonPrefix(strs));
+const strs = ["flight", "flora", "flowers"];
 
-function longestCommonPrefix(a) {
-  let size = a.length;
+const longestCommonPrefix = function (strs) {
+  if (!strs || strs.length === 1) {
+    return strs[0] || "";
+  }
 
-  if (size === 0) return "";
-  if (size === 1) return a[0];
-  a.sort();
-  let end = Math.min(a[0].length, a[size - 1].length);
   let i = 0;
-  while (i < end && a[0][i] == a[size - 1][i]) i++;
-  let pre = a[0].substring(0, i);
-  return pre;
-}
+  // i = 0,,,  f  &&              flight f      ===   f - flights
+  //                              flore  f      ===   f - flights
+  //                  flowers f      ===   f - flights
 
-let strs = ["flower", "flow", "flight"];
-console.log(longestCommonPrefix(strs));
+  // i = 1,,,  f  &&              flight l      ===   l - flights
+  //                             flore  l      ===   l - flights
+  //                             flowers l      ===   l - flights
 
-module.exports = longestCommonPrefix;
+  // i = 2,,,  f  &&             flight i      ===   i - flights
+  //                             flore  o      ===   i - flights
+  while (strs[0][i] && strs.every((str) => str[i] === strs[0][i])) i++;
+
+  //i = 2
+  return strs[0].substring(0, i);
+};
+
+longestCommonPrefix(strs);

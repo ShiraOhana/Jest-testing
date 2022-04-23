@@ -40,4 +40,20 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+var romanToInt = (str) => {
+  const roman = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+  let num = 0;
+  for (let i = 0; i < str.length; i++) {
+    const curr = roman[str[i]];
+    const next = roman[str[i + 1]];
+    if (curr < next) {
+      num -= curr;
+    } else {
+      num += curr;
+    }
+  }
+  console.log(num);
+  return num;
+};
+
+romanToInt("MCMXCIV");

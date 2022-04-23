@@ -56,4 +56,5 @@ var romanToInt = (str) => {
   return num;
 };
 
-romanToInt("MCMXCIV");
+// romanToInt("MCMXCIV");
+module.exports = romanToInt;

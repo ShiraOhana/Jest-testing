@@ -40,3 +40,4 @@ function searchInsert(nums, target) {
 }
 
 console.log(searchInsert([1, 3, 5, 6], 5));
+module.exports = searchInsert;

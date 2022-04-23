@@ -31,4 +31,20 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i] === needle[0]) {
+      let matches = true;
+      for (let j = 1; j < needle.length; j++) {
+        if (haystack[i + j] !== needle[j]) {
+          matches = false;
+        }
+      }
+      if (matches) return i;
+    }
+  }
+
+  return -1;
+};
+
+module.exports = strStr;

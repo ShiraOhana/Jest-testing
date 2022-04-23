@@ -16,7 +16,7 @@
     "url": "https://github.com/ShiraOhana/Jest-testing/issues"
   },
   "homepage": "https://github.com/ShiraOhana/Jest-testing#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^27.5.1"
   }
 }

@@ -3,7 +3,8 @@
  * @param {number} target
  * @return {number}
  * 
- * @description Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+ * @description Given a sorted array of distinct integers and a target value, return the index if the target is found.
+ *  If not, return the index where it would be if it were inserted in order.
 
 Optional write an algorithm with O(log n) runtime complexity.
 
@@ -30,4 +31,12 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+function searchInsert(nums, target) {
+  let result = 0;
+  nums.forEach((num, i) => {
+    if (num < target) result = i + 1;
+  });
+  return result;
+}
+
+console.log(searchInsert([1, 3, 5, 6], 5));
